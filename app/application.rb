@@ -7,6 +7,7 @@ class Application
    req = Rack::Request.new(env)
 
    if req.path=="/items/"
+     new_item = Item.new
      resp.write "The item price is #{"price"}."
      resp.status = 200
    else
