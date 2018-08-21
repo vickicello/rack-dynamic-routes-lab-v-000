@@ -2,13 +2,13 @@ class Application
 
   @@items = []
 
- def call(env)
-   resp = Rack::Response.new
-   req = Rack::Request.new(env)
+  def call(env)
+    resp = Rack::Response.new
+    req = Rack::Request.new(env)
 
-   if req.path.match(/items/)
-     new_item = req.path.split("/items/").last
-     item = @@items.find { |i| i.name == new_item }
+    if req.path.match(/items/)
+      new_item = req.path.split("/items/").last
+      item = @@items.find { |i| i.name == new_item }
 
       if item
         resp.write item.price
